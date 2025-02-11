@@ -1,0 +1,11 @@
+version: '3'
+services:
+  jellyfin_sorter:
+    build: .
+    container_name: jellyfin_sorter
+    volumes:
+      - /mnt/drive/cont_data/media_folder/upload/movies:/app/media/up_movies
+      - /mnt/drive/cont_data/media_folder/upload/series:/app/media/up_series
+      - /mnt/drive/cont_data/jellyfin_media_files:/app/media/dst
+      - ./log:/app/log
+    restart: unless-stopped
